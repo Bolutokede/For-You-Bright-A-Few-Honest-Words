@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#110d13">
+  <meta name="description" content="A few honest words for Bright, written from the heart.">
+  <title>For You, Bright — A Few Honest Words</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: dark;
+      --ink: #f8edf2;
+      --muted: #b9aab4;
+      --rose: #e9a9bc;
+      --rose-bright: #f3bfd0;
+      --glass: rgba(255, 247, 251, 0.055);
+      --line: rgba(255, 226, 237, 0.13);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      min-width: 320px;
+      min-height: 100vh;
+      margin: 0;
+      overflow-x: hidden;
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(113, 49, 76, 0.28), transparent 50%),
+        radial-gradient(ellipse at 5% 70%, rgba(104, 56, 83, 0.12), transparent 38%),
+        #110d13;
+      color: var(--ink);
+      font-family: "Inter", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body::before {
+      position: fixed;
+      z-index: -1;
+      inset: 0;
+      background-image: radial-gradient(rgba(255, 231, 240, 0.2) 0.55px, transparent 0.55px);
+      background-size: 5px 5px;
+      content: "";
+      opacity: 0.12;
+      pointer-events: none;
+    }
+
+    .ambient {
+      position: fixed;
+      z-index: -1;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .heart {
+      position: absolute;
+      bottom: -50px;
+      color: #e99ab2;
+      animation: drift 17s linear infinite;
+      opacity: 0;
+      filter: drop-shadow(0 0 12px rgba(232, 151, 178, 0.3));
+    }
+
+    .heart:nth-child(1) { left: 8%; font-size: 16px; animation-delay: 1s; }
+    .heart:nth-child(2) { left: 22%; font-size: 11px; animation-delay: 8s; animation-duration: 21s; }
+    .heart:nth-child(3) { left: 39%; font-size: 19px; animation-delay: 4s; animation-duration: 19s; }
+    .heart:nth-child(4) { left: 57%; font-size: 12px; animation-delay: 11s; }
+    .heart:nth-child(5) { left: 73%; font-size: 17px; animation-delay: 2s; animation-duration: 22s; }
+    .heart:nth-child(6) { left: 91%; font-size: 13px; animation-delay: 6s; animation-duration: 18s; }
+
+    @keyframes drift {
+      0% { transform: translate3d(0, 0, 0) rotate(-12deg); opacity: 0; }
+      12% { opacity: 0.34; }
+      82% { opacity: 0.24; }
+      100% { transform: translate3d(24px, -112vh, 0) rotate(18deg); opacity: 0; }
+    }
+
+    main {
+      width: min(100% - 40px, 760px);
+      margin: 0 auto;
+      padding: 76px 0 58px;
+    }
+
+    .intro { margin-bottom: 35px; text-align: center; }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 15px;
+      color: var(--rose);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before, .eyebrow::after {
+      width: 20px;
+      height: 1px;
+      background: rgba(233, 169, 188, 0.55);
+      content: "";
+    }
+
+    h1, h2, .signature { font-family: "Playfair Display", Georgia, serif; }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(3.1rem, 9vw, 5.3rem);
+      font-weight: 500;
+      letter-spacing: -0.055em;
+      line-height: 1;
+    }
+
+    .subtitle {
+      max-width: 430px;
+      margin: 18px auto 0;
+      color: var(--muted);
+      font-size: 0.94rem;
+      line-height: 1.8;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 27px;
+      color: var(--rose);
+      font-size: 0.78rem;
+      opacity: 0.8;
+    }
+
+    .divider::before, .divider::after {
+      width: 42px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(233, 169, 188, 0.4));
+      content: "";
+    }
+
+    .divider::after { transform: rotate(180deg); }
+
+    .tabs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin: 0 0 18px;
+      padding: 6px;
+      border: 1px solid rgba(255, 226, 237, 0.09);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.025);
+      backdrop-filter: blur(14px);
+    }
+
+    .tab {
+      min-height: 48px;
+      padding: 10px 12px;
+      border: 1px solid transparent;
+      border-radius: 11px;
+      background: transparent;
+      color: #aa9aa4;
+      cursor: pointer;
+      font: inherit;
+      font-size: 0.82rem;
+      font-weight: 500;
+      transition: color 220ms ease, background 220ms ease, border-color 220ms ease, transform 220ms ease;
+    }
+
+    .tab:hover { color: var(--ink); }
+
+    .tab[aria-selected="true"] {
+      border-color: rgba(233, 169, 188, 0.19);
+      background: linear-gradient(135deg, rgba(224, 144, 170, 0.16), rgba(255, 255, 255, 0.045));
+      box-shadow: 0 5px 20px rgba(4, 2, 5, 0.15), inset 0 1px rgba(255, 255, 255, 0.045);
+      color: var(--rose-bright);
+    }
+
+    .tab:focus-visible {
+      outline: 2px solid var(--rose-bright);
+      outline-offset: 3px;
+    }
+
+    .letter {
+      position: relative;
+      overflow: hidden;
+      min-height: 365px;
+      padding: clamp(27px, 6vw, 48px);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background:
+        radial-gradient(ellipse at 100% 0%, rgba(228, 148, 174, 0.09), transparent 45%),
+        var(--glass);
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28), inset 0 1px rgba(255, 255, 255, 0.075);
+      backdrop-filter: blur(20px);
+      animation: arrive 500ms cubic-bezier(0.2, 0.7, 0.25, 1) both;
+    }
+
+    @keyframes arrive {
+      from { transform: translateY(8px); opacity: 0.35; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .letter::after {
+      position: absolute;
+      top: 0;
+      left: 48px;
+      width: 76px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--rose), transparent);
+      content: "";
+      opacity: 0.8;
+    }
+
+    .letter-kicker {
+      margin: 0 0 15px;
+      color: var(--rose);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin: 0 0 22px;
+      color: #fff4f7;
+      font-size: clamp(1.85rem, 5vw, 2.55rem);
+      font-weight: 500;
+      letter-spacing: -0.035em;
+      line-height: 1.2;
+    }
+
+    .copy p {
+      margin: 0 0 15px;
+      color: #c9bbc3;
+      font-size: 0.94rem;
+      line-height: 1.9;
+    }
+
+    .copy p:last-child { margin-bottom: 0; }
+
+    .signoff {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-top: 31px;
+      padding-top: 22px;
+      border-top: 1px solid rgba(255, 226, 237, 0.1);
+    }
+
+    .signoff-heart {
+      display: grid;
+      width: 38px;
+      height: 38px;
+      flex: 0 0 auto;
+      place-items: center;
+      border: 1px solid rgba(233, 169, 188, 0.22);
+      border-radius: 50%;
+      background: rgba(233, 169, 188, 0.07);
+      color: var(--rose);
+      font-size: 0.95rem;
+    }
+
+    .signature {
+      margin: 0;
+      color: var(--rose-bright);
+      font-size: 1.27rem;
+      font-style: italic;
+    }
+
+    .signature-note {
+      margin: 3px 0 0;
+      color: #968791;
+      font-size: 0.7rem;
+      letter-spacing: 0.02em;
+    }
+
+    .footnote {
+      margin: 24px 0 0;
+      color: #796c76;
+      font-size: 0.72rem;
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    [hidden] { display: none !important; }
+
+    @media (max-width: 560px) {
+      main { width: min(100% - 28px, 760px); padding: 53px 0 35px; }
+      .intro { margin-bottom: 27px; }
+      .subtitle { max-width: 330px; font-size: 0.88rem; }
+      .tabs { gap: 4px; padding: 5px; border-radius: 13px; }
+      .tab { min-height: 46px; padding: 8px 5px; font-size: 0.72rem; }
+      .letter { min-height: 0; border-radius: 18px; }
+      .letter::after { left: 28px; }
+      .copy p { font-size: 0.89rem; line-height: 1.85; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="ambient" aria-hidden="true">
+    <span class="heart">♡</span>
+    <span class="heart">♥</span>
+    <span class="heart">♡</span>
+    <span class="heart">♥</span>
+    <span class="heart">♡</span>
+    <span class="heart">♥</span>
+  </div>
+
+  <main>
+    <header class="intro">
+      <p class="eyebrow">A note from my heart</p>
+      <h1>For You, Bright</h1>
+      <p class="subtitle">Some things are easier to say when they're written down. These are a few honest words I've been carrying with me.</p>
+      <div class="divider" aria-hidden="true">♡</div>
+    </header>
+
+    <div class="tabs" role="tablist" aria-label="Choose a letter">
+      <button class="tab" id="tab-why" type="button" role="tab" aria-selected="true" aria-controls="panel-why" tabindex="0">Why You</button>
+      <button class="tab" id="tab-truth" type="button" role="tab" aria-selected="false" aria-controls="panel-truth" tabindex="-1">My Truth</button>
+      <button class="tab" id="tab-back" type="button" role="tab" aria-selected="false" aria-controls="panel-back" tabindex="-1">If You Come Back</button>
+    </div>
+
+    <section class="letter" id="panel-why" role="tabpanel" aria-labelledby="tab-why" tabindex="0">
+      <p class="letter-kicker">The little things, and everything</p>
+      <h2>Why you still matter to me</h2>
+      <div class="copy">
+        <p>I miss the way an ordinary day felt a little lighter when I got to share it with you. Your laugh, your perspective, the quiet comfort of simply being in the same room — those were never small things to me.</p>
+        <p>I love how much care you bring to the people and things that matter to you. I admire your strength, your warmth, and the way you make space for others to be fully themselves. Knowing you has made my life richer, and that remains true even now.</p>
+        <p>This isn't meant to make you responsible for how I feel. I just wanted you to know that what I value about you was real, and that I still see it clearly.</p>
+      </div>
+      <div class="signoff">
+        <span class="signoff-heart" aria-hidden="true">♡</span>
+        <div>
+          <p class="signature">With all my heart,</p>
+          <p class="signature-note">Someone who will always be grateful for you</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="letter" id="panel-truth" role="tabpanel" aria-labelledby="tab-truth" tabindex="0" hidden>
+      <p class="letter-kicker">What I needed to understand</p>
+      <h2>The truth I've had to face</h2>
+      <div class="copy">
+        <p>I've spent time looking honestly at us, and at myself. I can see places where I didn't listen as well as I should have, where I took things for granted, and where my intentions mattered less than the way my choices made you feel. I'm sorry for that.</p>
+        <p>I know that saying sorry doesn't undo anything, and missing you doesn't mean I get to ask you to set aside what you need. I'm not writing to argue with your decision or to make promises I can't prove. I'm trying to be accountable, whether or not we find our way back to each other.</p>
+        <p>You deserved patience, care, and honesty from me. I'm learning to offer those more consistently — not as a bargain, but because it's the kind of person I want to be.</p>
+      </div>
+      <div class="signoff">
+        <span class="signoff-heart" aria-hidden="true">♡</span>
+        <div>
+          <p class="signature">With honesty,</p>
+          <p class="signature-note">A man learning to do better</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="letter" id="panel-back" role="tabpanel" aria-labelledby="tab-back" tabindex="0" hidden>
+      <p class="letter-kicker">Only if it feels right to you</p>
+      <h2>If you ever choose to try again</h2>
+      <div class="copy">
+        <p>I would want us to begin gently — with a real conversation, open ears, and no expectation that everything can be fixed in one evening. I would want to understand what you need, share what I've learned, and let trust grow through what we do, not just what we say.</p>
+        <p>We could take our time and find out whether there's still something good for both of us to build. And if your answer is no, I will respect it. You don't owe me another chance, a reply, or a timeline.</p>
+        <p>Whatever happens, I hope life meets you with the tenderness and joy you deserve. If our paths meet again, I would be grateful to meet you with more care than before.</p>
+      </div>
+      <div class="signoff">
+        <span class="signoff-heart" aria-hidden="true">♡</span>
+        <div>
+          <p class="signature">Always wishing you well,</p>
+          <p class="signature-note">With care, and without pressure</p>
+        </div>
+      </div>
+    </section>
+
+    <p class="footnote">Take all the time and space you need. There is no expectation to answer.</p>
+  </main>
+
+  <script>
+    const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
+
+    function selectTab(selectedTab, moveFocus = false) {
+      tabs.forEach((tab) => {
+        const selected = tab === selectedTab;
+        tab.setAttribute("aria-selected", String(selected));
+        tab.tabIndex = selected ? 0 : -1;
+        document.getElementById(tab.getAttribute("aria-controls")).hidden = !selected;
+      });
+      if (moveFocus) selectedTab.focus();
+    }
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener("click", () => selectTab(tab));
+      tab.addEventListener("keydown", (event) => {
+        let nextIndex;
+        if (event.key === "ArrowRight") nextIndex = (index + 1) % tabs.length;
+        else if (event.key === "ArrowLeft") nextIndex = (index - 1 + tabs.length) % tabs.length;
+        else if (event.key === "Home") nextIndex = 0;
+        else if (event.key === "End") nextIndex = tabs.length - 1;
+        else return;
+
+        event.preventDefault();
+        selectTab(tabs[nextIndex], true);
+      });
+    });
+  </script>
+</body>
+</html>
